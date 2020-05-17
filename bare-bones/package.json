@@ -1,0 +1,16 @@
+{
+  "name": "bare-bones",
+  "version": "1.0.0",
+  "description": "A starter project, nothing more",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Bear",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^14.0.1",
+    "tslint": "^6.1.2",
+    "typescript": "^3.9.2"
+  }
+}
