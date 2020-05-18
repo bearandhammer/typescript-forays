@@ -44,4 +44,11 @@ mixed.map((point: Point): Point => {
     return point;
 });
 
-// Multiple types in arrays
+// Multiple types in arrays (mixture of Dates and strings) (string | Date())
+// const importantDates = [ new Date(), '2030-10-10' ];         // A-OK
+
+// Adding types after the fact, use annotations
+const importantDates: (Date | string)[] = [ new Date() ];
+importantDates.push('2021-12-01');
+importantDates.push('2030-01-01');
+//importantDates.push(12);                 // Invalid
