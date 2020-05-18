@@ -65,3 +65,36 @@ const coordinates: { x: number; y: number } = JSON.parse(sampleJson);
 console.log(coordinates);
 
 //coordinates.someRandomProperty; // No help here, by default
+
+// 2) When we declare a variable on one line and initialise it later
+let words = [ 'test', 'bed', 'spider' ];
+let foundWord: boolean;                 // Better to just initialise it in this case, of course (demo only)
+for (let i = 0; i < words.length; i++) {
+    if (words[i] === 'bed') {
+        foundWord = true;               // Set after the fact, will be 'any' without intervention   
+    }
+}
+console.log(foundWord);
+
+// 3) When inference does not work (denote what types are valid)
+let moreNumbers = [-10, -1, 12];
+let numberAboveZero: boolean | number = false;                        // Not a fantastic use case really, illustration only
+for (let i = 0; i < moreNumbers.length; i++) {
+    if (numbers[i] > 0) {
+        numberAboveZero = numbers[i];
+    }   
+}
+console.log(numberAboveZero);
+
+const testFunction: (input: number | string) => boolean = (input) => {
+    if (typeof(input) === 'number') {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+console.log(testFunction(125));
+console.log(testFunction('Hello'));
+//console.log(testFunction(new Date()));      // Invalid
