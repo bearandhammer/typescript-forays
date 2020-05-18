@@ -9,14 +9,14 @@ const person = {
 
 //person.name               // Invalid - property does not exist
 
-interface gamingConsole {
+interface GamingConsole {
     cpuModel: string;
     gpuModel: string;
     suppliedControllerCount: number;
     releaseDate: Date
 }
 
-let newConsole: gamingConsole = {
+let newConsole: GamingConsole = {
     cpuModel: "AMD Zen 2",
     gpuModel: 'RDNA 2',
     suppliedControllerCount: 2,
