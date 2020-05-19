@@ -1,7 +1,7 @@
 // Users have a name and location (coords) - data  created using 'faker'
 import faker from 'faker';
 
-class User {
+export class User {
     name: string;
     location: {
         lat: number;
