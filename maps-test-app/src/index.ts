@@ -2,10 +2,14 @@ import { User } from './User';
 import { Company } from './Company';
 import { CustomMap } from './CustomMap';
 
+// Registered map div container id
+const mapDivId = 'MapContainer';
+
+// Setup sample data
 const user = new User();
-console.log(user);
-
 const company = new Company();
-console.log(company);
 
-const mapInScope = new CustomMap('MapContainer');
+// Create a map and register markers
+const mapInScope = new CustomMap(mapDivId);
+mapInScope.addMarker(user);
+mapInScope.addMarker(company);
