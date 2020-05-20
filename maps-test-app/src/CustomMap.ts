@@ -19,7 +19,7 @@ export class CustomMap {
         })
     }
 
-    addMarker(mappable: Mappable) : void {
+    addMarker(mappable: Mappable): void {
         const marker = new google.maps.Marker({
             map: this.googleMap,
             position: {
@@ -28,6 +28,10 @@ export class CustomMap {
             }
         });
 
+        this.configureMarkerClickHandler(marker);
+    }
+
+    private configureMarkerClickHandler(marker: google.maps.Marker): void {
         marker.addListener('click', () => {
             const infoWindow = new google.maps.InfoWindow({
                 content: 'This is a test marker!'
