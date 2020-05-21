@@ -1,5 +1,5 @@
 // Supporting interface for a type that can be marked on the map
-interface Mappable {
+export interface Mappable {
     location: {
         lat: number;
         lng: number;
