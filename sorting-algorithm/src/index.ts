@@ -6,3 +6,4 @@ const logSomething = () => {
     console.log('something');
 }
 logSomething();
+let v = 22;
