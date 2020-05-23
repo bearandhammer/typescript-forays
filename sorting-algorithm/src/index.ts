@@ -1,9 +1,29 @@
-let a = 1;
-let b = 2;
-let c = a + b;
-console.log('Hi there. Testing compilation.');
-const logSomething = () => {
-    console.log('something');
+class Sorter {
+    constructor(public collection: number[]) {}
+
+    sort(): void {
+        const { length } = this.collection;
+
+        for (let i = 0; i < length; i++) {
+            for (let j = 0; j < length - 1; j++) {
+                // Compare/swap values (simple/not the best solution - illustration only)
+                if (this.collection[j] > this.collection[j + 1]) {
+                    const leftHandValue = this.collection[j];
+                    this.collection[j] = this.collection[j + 1];
+                    this.collection[j + 1] = leftHandValue;
+                }
+            }
+        }
+    }
 }
-logSomething();
-let v = 22;
+
+const sorter = new Sorter([10, 3, -5, 0]);
+
+// Pre-sort
+console.log(`Before sort: ${ sorter.collection }`);
+
+// Perform sort (simple bubble sort)
+sorter.sort();
+
+// Post-sort
+console.log(`After sort: ${ sorter.collection }`);
