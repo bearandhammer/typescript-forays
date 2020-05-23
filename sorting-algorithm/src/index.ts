@@ -20,7 +20,7 @@ class Sorter {
 
                 // Type guard = dealing with a string
                 if (typeof this.collection === 'string') {
-                    
+                                        
                 }
             }
         }
