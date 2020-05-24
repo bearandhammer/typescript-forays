@@ -1,7 +1,7 @@
 import { Node } from './Node';
-import { Sortable } from './Sorter';
+import { Sorter } from './Sorter';
 
-export class LinkedList implements Sortable {
+export class LinkedList extends Sorter {
     head: Node | null = null;
     
     get length(): number {
