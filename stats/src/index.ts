@@ -1,3 +1,7 @@
 import fs from 'fs';
 
-console.log('Hey there!');
+const matches = fs.readFileSync('football.csv', {
+    encoding: 'utf-8'           // String representing content
+});
+
+console.log(matches);
