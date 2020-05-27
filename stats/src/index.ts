@@ -1,37 +1,27 @@
-// Imports that assist with collation/loading of data
-import { CsvFileReader } from './CsvFileReader';
+// Import that assists with collation/loading of data
 import { MatchReader } from './MatchReader';
-// Imports that assist with reporting (report generation, etc.)
-import { ConsoleReport } from './ReportTargets/ConsoleReport';
-import { HtmlReport } from './ReportTargets/HtmlReport';
-import { WinsAnalysis } from './Analyzers/WinsAnalysis';
+// Import that assists with reporting (report generation, etc.)
 import { Summary } from './Summary';
 
 // Load match data (from CSV)
-const csvFileReader = new CsvFileReader('football.csv');
-const matchReader = new MatchReader(csvFileReader);
+// const csvFileReader = new CsvFileReader('football.csv');
+// const matchReader = new MatchReader(csvFileReader);
+// matchReader.load();
+const matchReader = MatchReader.fromCsv('football.csv');
 matchReader.load();
 
-// Outputing to the console for the WinsAnalysis-based summaries
-const consoleReportOutput = new ConsoleReport();
+// Define constants for the team names that we want to report on
+const manUnited = 'Man United',
+    huddersfield = 'Huddersfield';
 
 // Man United - print 'wins'
-let summary = new Summary(
-    new WinsAnalysis('Man United'),
-    consoleReportOutput
-);
+let summary = Summary.winsAnalsisWithConsoleReport(manUnited);
 summary.compileReport(matchReader.matches);
 
 // Huddersfield - print 'wins'
-summary = new Summary(
-    new WinsAnalysis('Huddersfield'),
-    consoleReportOutput
-);
+summary = Summary.winsAnalsisWithConsoleReport(huddersfield);
 summary.compileReport(matchReader.matches);
 
 // Man United - wins to 'report.html'
-summary = new Summary(
-    new WinsAnalysis('Man United'),
-    new HtmlReport()
-);
+summary = Summary.winsAnalysisWithHtmlReport(manUnited);
 summary.compileReport(matchReader.matches);

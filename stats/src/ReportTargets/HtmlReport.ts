@@ -4,7 +4,7 @@ import fs from 'fs';
 export class HtmlReport implements OutputTarget {
     print(report: string): void {
         const html = `
-        <!--Generated from HtmlReport.print()-->
+        <!--Generated from the HtmlReport.print() function-->
         <div>
             <h1>Analysis Report</h1>
             <div>${ report }</div>
