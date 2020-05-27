@@ -1,18 +1,11 @@
-// Testing the first run, not ideal implementation of User (will get worse before it gets better - following course for now)
-import { User } from './Models/User';
+import axios from 'axios';
 
-const user = new User({ name: 'Billy', age: 25 });
-
-user.on('change', () => {
-    console.log('Change #1');
-});
-user.on('change', () => {
-    console.log('Change #2');
-});
-user.on('save', () => {
-    console.log('Save was triggered');
+axios.post('http://localhost:3000/users', {
+    name: 'myname',
+    age: 20
 });
 
-user.trigger('change');
-user.trigger('save');
-user.trigger('doesnotexist');
+axios.get('http://localhost:3000/users/1')
+    .then(response => {
+        console.log(response.data);
+    });
