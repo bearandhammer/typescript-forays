@@ -2,6 +2,7 @@
 import { User } from './Models/User';
 
 const user = new User({ name: 'Billy', age: 25 });
+user.set({ name: 'Angie', age: 22 });
 
 console.log(user.get('name'));
 console.log(user.get('age'));
