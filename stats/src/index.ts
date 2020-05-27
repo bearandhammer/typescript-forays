@@ -3,6 +3,7 @@ import { CsvFileReader } from './CsvFileReader';
 import { MatchReader } from './MatchReader';
 // Imports that assist with reporting (report generation, etc.)
 import { ConsoleReport } from './ReportTargets/ConsoleReport';
+import { HtmlReport } from './ReportTargets/HtmlReport';
 import { WinsAnalysis } from './Analyzers/WinsAnalysis';
 import { Summary } from './Summary';
 
@@ -25,5 +26,12 @@ summary.compileReport(matchReader.matches);
 summary = new Summary(
     new WinsAnalysis('Huddersfield'),
     consoleReportOutput
+);
+summary.compileReport(matchReader.matches);
+
+// Man United - wins to 'report.html'
+summary = new Summary(
+    new WinsAnalysis('Man United'),
+    new HtmlReport()
 );
 summary.compileReport(matchReader.matches);
