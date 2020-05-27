@@ -3,8 +3,16 @@ import { User } from './Models/User';
 
 const user = new User({ name: 'Billy', age: 25 });
 
-user.on('change', () => {});
-user.on('change', () => {});
-user.on('click', () => {});
+user.on('change', () => {
+    console.log('Change #1');
+});
+user.on('change', () => {
+    console.log('Change #2');
+});
+user.on('save', () => {
+    console.log('Save was triggered');
+});
 
-console.log(user);
+user.trigger('change');
+user.trigger('save');
+user.trigger('doesnotexist');
