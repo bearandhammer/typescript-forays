@@ -9,3 +9,5 @@ axios.get('http://localhost:3000/users/1')
     .then(response => {
         console.log(response.data);
     });
+
+console.log('Testing a commit omitting db.json');
