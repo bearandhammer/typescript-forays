@@ -1,13 +1,8 @@
-import axios from 'axios';
+import { User } from './Models/User';
 
-axios.post('http://localhost:3000/users', {
-    name: 'myname',
-    age: 20
-});
+const user = new User({ id: 1 });
+user.fetch();
 
-axios.get('http://localhost:3000/users/1')
-    .then(response => {
-        console.log(response.data);
-    });
-
-console.log('Testing a commit omitting db.json');
+setTimeout(() => {
+    console.log(user);
+}, 4000);
