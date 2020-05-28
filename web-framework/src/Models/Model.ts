@@ -4,6 +4,7 @@ import { ModelAttributes } from '../interfaces/ModelAttributes';
 import { Events } from '../interfaces/Events';
 import { Sync } from '../interfaces/Sync';
 
+// Class that represents a base class for any 'model' that wants to exist within our web framework, with some default functionality included
 export class Model<T extends SupportsId> {
     constructor(
         private attributes: ModelAttributes<T>,
