@@ -1,5 +1,7 @@
+import { ModelAttributes } from '../interfaces/ModelAttributes';
+
 // Class that handles interaction against attributes for a given model (retrieval/setting of 'data' values)
-export class Attributes<T> {
+export class Attributes<T> implements ModelAttributes<T> {
     constructor(private data: T) {
     }
 

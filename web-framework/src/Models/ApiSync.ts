@@ -1,8 +1,9 @@
 import axios, { AxiosPromise } from 'axios';
 import { SupportsId } from '../interfaces/SupportsId';
+import { Sync } from '../interfaces/Sync';
 
 // Class that deals with the fetching/persistence of data within the web framework
-export class ApiSync<T extends SupportsId> {
+export class ApiSync<T extends SupportsId> implements Sync<T> {
     constructor(public rootUrl: string) {
     }
 
