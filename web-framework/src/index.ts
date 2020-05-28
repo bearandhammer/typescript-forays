@@ -1,10 +1,10 @@
 import { User } from './Models/User';
 
 // Update
-const user = new User({ id: 1 });
-user.set({ name: 'NEW NAME', age: 21 });
-user.save();
+const user = new User({ name: "New record", age: 40 });
 
-// New
-const newUser = new User({ name: 'New record', age: 36 });
-newUser.save();
+user.events.on('change', () => {
+    console.log('change!');
+});
+
+user.events.trigger('change');
