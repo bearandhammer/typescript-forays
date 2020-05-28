@@ -1,6 +1,7 @@
 import { Eventing } from './Eventing';
 import { Sync } from './Sync';
 import { Attributes } from './Attributes';
+import { AxiosResponse } from 'axios';
 
 // ? = optional property
 export interface UserProps {
@@ -30,5 +31,26 @@ export class User {
 
     get get() {
         return this.attributes.get;
+    }
+
+    set(update: UserProps): void {
+        // Update attributes and trigger a change event
+        this.attributes.set(update);
+        this.events.trigger('change');
+    }
+
+    fetch(): void {
+        const id = this.get('id');     
+        
+        // We can't 'fetch' an existing setup without the presence of an existing id
+        if (typeof id !== 'number') {
+            throw new Error('Cannot fetch without an id.');
+        }
+
+        // Perform the fetch, setting up object properties
+        this.sync.fetch(id)
+            .then((response: AxiosResponse): void => {
+                this.set(response.data);
+            });
     }
 }
