@@ -2,13 +2,7 @@ import { Model } from './Model';
 import { Attributes } from './Attributes';
 import { ApiSync } from './ApiSync';
 import { Eventing } from './Eventing';
-
-// ? = optional property
-export interface UserProps {
-    id?: number;
-    name?: string;
-    age?: number;
-}
+import { UserProps } from '../interfaces/UserProps';
 
 const rootUrl = 'http://localhost:3000/users';
 

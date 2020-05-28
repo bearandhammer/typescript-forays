@@ -1,26 +1,8 @@
-import { AxiosPromise, AxiosResponse } from 'axios';
-
-type Callback = () => void;
-
-interface ModelAttributes<T> {
-    get<K extends keyof T>(key: K): T[K];
-    getAll(): T;
-    set(value: T): void;
-}
-
-interface Sync<T> {
-    fetch(id: number): AxiosPromise
-    save(data: T): AxiosPromise
-}
-
-interface Events {
-    on(eventName: string, callback: Callback);
-    trigger(eventName: string): void;
-}
-
-interface SupportsId {
-    id?: number;
-}
+import { AxiosResponse } from 'axios';
+import { SupportsId } from '../interfaces/SupportsId';
+import { ModelAttributes } from '../interfaces/ModelAttributes';
+import { Events } from '../interfaces/Events';
+import { Sync } from '../interfaces/Sync';
 
 export class Model<T extends SupportsId> {
     constructor(

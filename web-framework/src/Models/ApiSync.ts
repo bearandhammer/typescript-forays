@@ -1,8 +1,5 @@
-import axios, { AxiosPromise } from "axios";
-
-interface SupportsId {
-    id?: number;
-}
+import axios, { AxiosPromise } from 'axios';
+import { SupportsId } from '../interfaces/SupportsId';
 
 export class ApiSync<T extends SupportsId> {
     constructor(public rootUrl: string) {
