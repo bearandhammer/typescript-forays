@@ -1,3 +1,4 @@
+// MOCK TEST SETUP...
 import { User } from './models/user';
 
 // Build a User (for testing) and setup a 'change' event

@@ -1,3 +1,4 @@
+// Class that handles interaction against attributes for a given model (retrieval/setting of 'data' values)
 export class Attributes<T> {
     constructor(private data: T) {
     }
