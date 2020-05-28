@@ -4,7 +4,7 @@ interface SupportsId {
     id?: number;
 }
 
-export class Sync<T extends SupportsId> {
+export class ApiSync<T extends SupportsId> {
     constructor(public rootUrl: string) {
     }
 
