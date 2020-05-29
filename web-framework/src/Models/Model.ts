@@ -13,6 +13,17 @@ export class Model<T extends SupportsId> {
     ) {
     }
 
+    /*Shortened syntax examples...
+        get on() {
+            return this.events.on;
+        }
+
+        becomes... on = this.events.on;
+
+        But...it is a little brittle and is only possible due to
+        our constructor structure - if anything involved is initialised inside
+        the constructor then we are quickly going to run into issues!
+    */
     get on() {
         return this.events.on;
     }
