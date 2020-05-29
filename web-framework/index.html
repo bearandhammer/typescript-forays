@@ -4,9 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Framework Test</title>
+    <style>
+        .bordered {
+            margin-bottom: 1.5rem;
+            border: 1px solid black;
+            border-radius: 0.2rem;
+            max-width: 800px;
+            padding: .5rem;
+        }
+
+        .user-detail-div {
+            margin-bottom: 1rem;
+        }
+
+        .user-detail-item {
+            min-width: 250px;
+            display: inline-block;
+        }
+    </style>
 </head>
 <body>
-    <div id="root">   
+    <h1>Simple Framework Example</h1>
+    <div id="user-edit-root" class="bordered">   
+    </div>
+    <h2>Users</h2>
+    <div id="user-details-root" class="bordered">
     </div>
     <script src="./src/index.ts"></script>
 </body>

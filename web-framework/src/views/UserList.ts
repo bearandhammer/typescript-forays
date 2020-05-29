@@ -1,10 +1,10 @@
 import { CollectionView } from './CollectionView';
 import { User } from '../models/User';
 import { UserProps } from '../interfaces/UserProps';
-import { UserShow } from '../views/UserShow';
+import { UserDetailRow } from './UserDetailRow';
 
 export class UserList extends CollectionView<User, UserProps> {
     renderItem(model: User, itemParent: Element): void {
-        new UserShow(itemParent, model).render();
+        new UserDetailRow(itemParent, model).render();
     }
 }
