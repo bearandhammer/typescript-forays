@@ -1,5 +1,9 @@
 import { Router, Request, Response } from 'express';
 
+interface BodyRequest extends Request {
+    body: { [key: string]: string | undefined }
+}
+
 const router = Router();
 router.get('/login', (req: Request, res: Response) => {
     res.send(`
@@ -17,11 +21,16 @@ router.get('/login', (req: Request, res: Response) => {
     `);
 });
 
-router.post('/login', (req: Request, res: Response) => {
+router.post('/login', (req: BodyRequest, res: Response) => {
     // Parser middleware required to handle form content - preconfigured
     const { email, password } = req.body;
 
-    res.send(`Email: ${ email } | Password: ${ password }`);
+    if (email) {
+        res.send(email.toUpperCase());   
+    }
+    else {
+        res.send('Error: email must be defined.');
+    }
 });
 
 export { router };

@@ -5,8 +5,8 @@ import bodyParser from 'body-parser';
 // Create an express application and attach route
 const app = express();
 
-// Add in middleware (for form parsing)
-app.use(bodyParser.urlencoded({ 
+// Add in middleware (for form parsing) -> express 'Request' does not inherently have a 'body' property, this is discovered/added by the middleware
+app.use(bodyParser.urlencoded({
     extended: true 
 }));
 
