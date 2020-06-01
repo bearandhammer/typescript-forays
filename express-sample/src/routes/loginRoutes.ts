@@ -16,21 +16,6 @@ function requireAuth(req: Request, res: Response, next: NextFunction): void {
 }
 
 const router = Router();
-router.get('/login', (req: Request, res: Response) => {
-    res.send(`
-        <form method="post">
-            <div>
-                <label>Email</label>
-                <input name="email" />
-            </div>
-            <div>
-                <label>Password</label>
-                <input name="password" type="password" />
-            </div>
-            <button>Submit</button>
-        </form>
-    `);
-});
 
 router.post('/login', (req: BodyRequest, res: Response) => {
     // Parser middleware required to handle form content - preconfigured
@@ -60,7 +45,7 @@ router.get('/', (req: Request, res: Response) => {
         res.send(`
             <div>
                 <div>You are not logged in</div>
-                <a href="/login">Login</a>
+                <a href="auth/login">Login</a>
             </div>
         `);
     }
