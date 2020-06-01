@@ -1,4 +1,5 @@
 import 'reflect-metadata';
+import { Methods } from './Methods';
 
 // Factory decorator - returns a function (nested)
 function routeBinder(method: string) {
@@ -11,8 +12,8 @@ function routeBinder(method: string) {
 }
 
 // Define route definitions
-export const get = routeBinder('get');
-export const post = routeBinder('post');
-export const put = routeBinder('put');
-export const del = routeBinder('delete');
-export const patch = routeBinder('patch');
+export const get = routeBinder(Methods.Get);
+export const post = routeBinder(Methods.Post);
+export const put = routeBinder(Methods.Put);
+export const del = routeBinder(Methods.Delete);
+export const patch = routeBinder(Methods.Patch);
