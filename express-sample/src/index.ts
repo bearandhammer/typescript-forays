@@ -2,8 +2,7 @@ import express from 'express';
 import { router } from './routes/loginRoutes';
 import bodyParser from 'body-parser';
 import cookieSession from 'cookie-session';
-
-import { router as controllerRouter } from './controllers/decorators/controller';
+import { AppRouter } from './AppRouter';
 import './controllers/LoginController';
 
 // Create an express application and attach route
@@ -19,7 +18,7 @@ app.use(cookieSession({
 
 // Configure routes from our preconfigured router object
 app.use(router);
-app.use(controllerRouter);
+app.use(AppRouter.getInstance());
 
 app.listen(3000, () => {
     console.log('Listening on port 3000...');
