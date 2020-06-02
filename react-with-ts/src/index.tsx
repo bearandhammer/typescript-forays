@@ -5,35 +5,40 @@ interface AppProps {
     colour: string
 }
 
-interface AppState {
-    counter: number
+// Functional components
+const App = (props: AppProps): JSX.Element => {
+    return <div>{ props.colour }</div>
 }
 
-class App extends React.Component<AppProps, AppState> {
-    constructor(props: AppProps) {
-        super(props);
-        this.state = { counter: 0 };
-    }   
+// interface AppState {
+//     counter: number
+// }
 
-    // Arrow functions - want to make sure these are bound (no 'contextual' issues in play!)
-    onIncrement = () => {
-        this.setState({ counter: this.state.counter + 1 });
-    }
+// class App extends React.Component<AppProps, AppState> {
+//     constructor(props: AppProps) {
+//         super(props);
+//         this.state = { counter: 0 };
+//     }   
 
-    onDecrement = () => {
-        this.setState({ counter: this.state.counter - 1 });
-    }
+//     // Arrow functions - want to make sure these are bound (no 'contextual' issues in play!)
+//     onIncrement = () => {
+//         this.setState({ counter: this.state.counter + 1 });
+//     }
 
-    render() {
-        return (
-            <div>
-                <button onClick={ this.onIncrement }>Increment</button>
-                <button onClick={ this.onDecrement }>Decrement</button>
-                { this.state.counter }
-            </div>
-        )
-    }
-}
+//     onDecrement = () => {
+//         this.setState({ counter: this.state.counter - 1 });
+//     }
+
+//     render() {
+//         return (
+//             <div>
+//                 <button onClick={ this.onIncrement }>Increment</button>
+//                 <button onClick={ this.onDecrement }>Decrement</button>
+//                 { this.state.counter }
+//             </div>
+//         )
+//     }
+// }
 
 ReactDOM.render(
     <React.StrictMode>
