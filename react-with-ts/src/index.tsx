@@ -5,8 +5,15 @@ interface AppProps {
     colour: string
 }
 
-class App extends React.Component<AppProps> {
-    state = { counter: 0 };
+interface AppState {
+    counter: number
+}
+
+class App extends React.Component<AppProps, AppState> {
+    constructor(props: AppProps) {
+        super(props);
+        this.state = { counter: 0 };
+    }   
 
     // Arrow functions - want to make sure these are bound (no 'contextual' issues in play!)
     onIncrement = () => {
