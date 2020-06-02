@@ -1,9 +1,10 @@
 import express from 'express';
-import { router } from './routes/loginRoutes';
 import bodyParser from 'body-parser';
 import cookieSession from 'cookie-session';
 import { AppRouter } from './AppRouter';
 import './controllers/LoginController';
+import './controllers/HomeController'
+import './controllers/ProtectedController';
 
 // Create an express application and attach route
 const app = express();
@@ -17,7 +18,6 @@ app.use(cookieSession({
 }));
 
 // Configure routes from our preconfigured router object
-app.use(router);
 app.use(AppRouter.getInstance());
 
 app.listen(3000, () => {
