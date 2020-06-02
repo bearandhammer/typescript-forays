@@ -45,6 +45,4 @@ class LoginController {
         req.session = null;
         res.redirect('/');
     }
-
-
 }
