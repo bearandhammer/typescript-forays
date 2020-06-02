@@ -17,21 +17,6 @@ function requireAuth(req: Request, res: Response, next: NextFunction): void {
 
 const router = Router();
 
-router.post('/login', (req: BodyRequest, res: Response) => {
-    // Parser middleware required to handle form content - preconfigured
-    const { email, password } = req.body;
-
-    if (email && password && email === 'admin@test.com' && password === "hithere") {
-        if (req.session) {
-            // Hmmm...TODO - refine
-            req.session.loggedIn = true;
-            res.redirect('/');
-        }
-    } else {
-        res.send('Invalid email or password.');
-    }
-});
-
 router.get('/', (req: Request, res: Response) => {
     if (req.session && req.session.loggedIn) {
         res.send(`

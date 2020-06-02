@@ -1,5 +1,6 @@
 export enum MetadataKeys {
     Method = "method",
     Path = "path",
-    Middleware = 'middleware'
+    Middleware = 'middleware',
+    Validator = 'validator'
 }
