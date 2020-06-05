@@ -3,7 +3,7 @@ import { todosReducer } from './todos';
 import { Todo } from '../actions';
 
 export interface StoreState {
-    todos: Todo[]
+    todos: Todo[];
 }
 
 // Dummy reducer...
